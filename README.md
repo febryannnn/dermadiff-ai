@@ -1,6 +1,9 @@
 # DermaDiff
 
-**Deteksi Kanker Kulit secara Interpretatif melalui Optimisasi Vision Foundation Model dengan Augmentasi Sintetis Berbasis Stable Diffusion**
+### **Deteksi Kanker Kulit secara Interpretatif melalui Optimisasi Vision Foundation Model dengan Augmentasi Sintetis Berbasis Stable Diffusion**
+
+#### **Paper:** [its.id/m/dermadiff-paper](https://its.id/m/dermadiff-paper)
+#### **Website:** [dermadiff-web.vercel.app](https://dermadiff-web.vercel.app)
 
 DermaDiff adalah sistem *clinical decision support* berbasis AI untuk deteksi kanker kulit yang mengintegrasikan tiga komponen dalam satu pipeline end-to-end: augmentasi sintetis berbasis latent diffusion model untuk mengatasi ketidakseimbangan kelas pada dataset dermoskopi, PanDerm ViT-Large sebagai vision foundation model klasifikasi khusus dermatologi, dan MedGemma 4B-IT sebagai lapisan interpretatif yang menghasilkan penjelasan klinis berbahasa alami berbasis ABCD rules. Sistem dirancang sebagai alat second opinion bagi dokter dengan akses dermoskop, menerapkan prinsip keselamatan escalate-never-clear untuk memastikan setiap lesi mencurigakan selalu direkomendasikan evaluasi lanjut.
 
