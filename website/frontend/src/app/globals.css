@@ -1,0 +1,176 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-plus-jakarta);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Clinical risk-tier semantic tokens — used for classification results.
+     Never map a "safe"/success green to a class; DermaDiff never labels a
+     lesion as clear (escalate-never-clear), so `risk-low` reads as
+     "lower visual concern", not "safe". */
+  --color-risk-high: var(--risk-high);
+  --color-risk-high-foreground: var(--risk-high-foreground);
+  --color-risk-moderate: var(--risk-moderate);
+  --color-risk-moderate-foreground: var(--risk-moderate-foreground);
+  --color-risk-low: var(--risk-low);
+  --color-risk-low-foreground: var(--risk-low-foreground);
+  --color-risk-info: var(--risk-info);
+  --color-risk-info-foreground: var(--risk-info-foreground);
+
+  /* Reserved for literal heat/attention visualizations (patch-grid heatmap,
+     the logo mark's "hot" cells) — never for buttons, links, or other UI
+     chrome, which use --primary (monochrome black/white). */
+  --color-heat: var(--heat);
+}
+
+:root {
+  --background: #faf9f6;
+  --foreground: #1c1a17;
+  --card: #ffffff;
+  --card-foreground: #1c1a17;
+  --popover: #ffffff;
+  --popover-foreground: #1c1a17;
+  --primary: #1c1a17;
+  --primary-foreground: #faf9f4;
+  --secondary: #f0eee8;
+  --secondary-foreground: #1c1a17;
+  --muted: #f0eee8;
+  --muted-foreground: #77726a;
+  --accent: #eae7de;
+  --accent-foreground: #1c1a17;
+  --destructive: #b3261e;
+  --border: #e4e1d8;
+  --input: #e4e1d8;
+  --ring: #1c1a17;
+  --chart-1: #1c1a17;
+  --chart-2: #77726a;
+  --chart-3: #a8462f;
+  --chart-4: #4a4136;
+  --chart-5: #d8cfc0;
+  --radius: 0.625rem;
+  --sidebar: #f4f2ed;
+  --sidebar-foreground: #1c1a17;
+  --sidebar-primary: #1c1a17;
+  --sidebar-primary-foreground: #faf9f4;
+  --sidebar-accent: #eae7de;
+  --sidebar-accent-foreground: #1c1a17;
+  --sidebar-border: #e4e1d8;
+  --sidebar-ring: #1c1a17;
+
+  --heat: #a8462f;
+
+  --risk-high: #fbeae6;
+  --risk-high-foreground: #9a3324;
+  --risk-moderate: #fbf1d8;
+  --risk-moderate-foreground: #8a5a00;
+  --risk-low: #eaf1e8;
+  --risk-low-foreground: #33613a;
+  --risk-info: #e7eff6;
+  --risk-info-foreground: #24567f;
+}
+
+.dark {
+  --background: #16130f;
+  --foreground: #f4eee6;
+  --card: #1e1a15;
+  --card-foreground: #f4eee6;
+  --popover: #1e1a15;
+  --popover-foreground: #f4eee6;
+  --primary: #f4eee6;
+  --primary-foreground: #16130f;
+  --secondary: #2a241d;
+  --secondary-foreground: #f4eee6;
+  --muted: #2a241d;
+  --muted-foreground: #ada398;
+  --accent: #2f2820;
+  --accent-foreground: #f4eee6;
+  --destructive: #e5645a;
+  --border: rgba(244, 238, 230, 0.1);
+  --input: rgba(244, 238, 230, 0.14);
+  --ring: #f4eee6;
+  --chart-1: #f4eee6;
+  --chart-2: #ada398;
+  --chart-3: #e08260;
+  --chart-4: #d8cfc0;
+  --chart-5: #4a4136;
+  --sidebar: #1b1712;
+  --sidebar-foreground: #f4eee6;
+  --sidebar-primary: #f4eee6;
+  --sidebar-primary-foreground: #16130f;
+  --sidebar-accent: #2f2820;
+  --sidebar-accent-foreground: #f4eee6;
+  --sidebar-border: rgba(244, 238, 230, 0.1);
+  --sidebar-ring: #f4eee6;
+
+  --heat: #e08260;
+
+  --risk-high: #3b2019;
+  --risk-high-foreground: #f2a48f;
+  --risk-moderate: #3a2f14;
+  --risk-moderate-foreground: #e8c468;
+  --risk-low: #1f2e22;
+  --risk-low-foreground: #9bcba1;
+  --risk-info: #1b2a38;
+  --risk-info-foreground: #8fc1e8;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
