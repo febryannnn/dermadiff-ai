@@ -1,9 +1,6 @@
 # Repository Structure
 
-Repository **DermaDiff AI** terdiri dari dua bagian utama:
-
-* `fine-tune/` — berisi seluruh kebutuhan eksperimen dan fine-tuning model AI.
-* `website/` — berisi aplikasi web, yang terdiri dari backend dan frontend.
+Repository ini terdiri dari dua bagian utama, yaitu `fine-tune` dan `website`.
 
 ```text
 dermadiff-ai/
@@ -43,52 +40,38 @@ dermadiff-ai/
 
 ## `fine-tune/`
 
-Berisi pipeline untuk eksperimen machine learning, mulai dari persiapan dataset, fine-tuning diffusion model, pembuatan synthetic images, hingga evaluasi.
+Folder ini berisi kode dan konfigurasi yang digunakan untuk proses persiapan dataset, fine-tuning, pembuatan citra sintetis, dan evaluasi model.
 
-| Folder/File        | Deskripsi                                               |
-| ------------------ | ------------------------------------------------------- |
-| `assets/`          | Asset dan gambar pendukung dokumentasi pipeline         |
-| `dataset/`         | Script untuk memperoleh dan menyiapkan dataset          |
-| `evaluation/`      | Script untuk evaluasi kualitas image dan performa model |
-| `models/`          | Implementasi eksperimen berdasarkan diffusion model     |
-| `dataset_prep.py`  | Persiapan dan pembagian dataset sebelum proses training |
-| `requirements.txt` | Dependency Python untuk pipeline fine-tuning            |
-| `README.md`        | Dokumentasi khusus bagian fine-tuning                   |
+| Direktori/File     | Keterangan                                                                 |
+| ------------------ | -------------------------------------------------------------------------- |
+| `assets/`          | Berisi aset pendukung dokumentasi dan visualisasi.                         |
+| `dataset/`         | Berisi script yang berkaitan dengan pengambilan dan persiapan dataset.     |
+| `evaluation/`      | Berisi script untuk melakukan evaluasi model dan citra hasil generasi.     |
+| `models/`          | Berisi implementasi dan konfigurasi fine-tuning untuk masing-masing model. |
+| `dataset_prep.py`  | Digunakan untuk mempersiapkan dataset sebelum proses training.             |
+| `requirements.txt` | Daftar dependency Python yang diperlukan.                                  |
+| `README.md`        | Dokumentasi untuk bagian `fine-tune`.                                      |
 
 ### `fine-tune/models/`
 
-Berisi eksperimen berdasarkan model diffusion yang berbeda.
+Direktori ini memisahkan eksperimen berdasarkan model yang digunakan.
 
-| Folder                           | Deskripsi                                         |
-| -------------------------------- | ------------------------------------------------- |
-| `stable-diffusion-2.1-base/`     | Eksperimen Stable Diffusion 2.1 dengan LoRA       |
-| `stable-diffusion-xl-base/`      | Eksperimen Stable Diffusion XL dengan LoRA        |
-| `stable-diffusion-3.5_large/`    | Eksperimen Stable Diffusion 3.5 Large dengan LoRA |
-| `stable-diffusion-xl-base-dora/` | Eksperimen Stable Diffusion XL dengan DoRA        |
+* `stable-diffusion-2.1-base/` — eksperimen menggunakan Stable Diffusion 2.1.
+* `stable-diffusion-xl-base/` — eksperimen menggunakan Stable Diffusion XL dengan LoRA.
+* `stable-diffusion-3.5_large/` — eksperimen menggunakan Stable Diffusion 3.5 Large dengan LoRA.
+* `stable-diffusion-xl-base-dora/` — eksperimen menggunakan Stable Diffusion XL dengan DoRA.
 
-Setiap folder model umumnya berisi script untuk:
-
-* fine-tuning;
-* generate synthetic images;
-* training classifier;
-* evaluation;
-* hasil atau weights fine-tuning.
+Setiap direktori model memiliki script yang berkaitan dengan proses fine-tuning, pembuatan citra, training classifier, dan evaluasi.
 
 ---
 
 ## `website/`
 
-Berisi implementasi aplikasi web DermaDiff AI.
-
-```text
-website/
-├── backend/
-└── frontend/
-```
+Folder ini berisi aplikasi web DermaDiff AI yang terdiri dari backend dan frontend.
 
 ### `website/backend/`
 
-Backend yang menangani inference model dan menyediakan API untuk frontend.
+Backend bertanggung jawab terhadap penyediaan API dan proses inference model.
 
 ```text
 backend/
@@ -99,17 +82,15 @@ backend/
 └── README.md
 ```
 
-| Folder/File | Deskripsi                                      |
-| ----------- | ---------------------------------------------- |
-| `api/`      | Endpoint API dan routing                       |
-| `core/`     | Configuration dan constants                    |
-| `models/`   | Implementasi model AI yang digunakan backend   |
-| `app.py`    | Entry point dan konfigurasi deployment backend |
-| `README.md` | Dokumentasi backend                            |
+* `api/` — berisi endpoint dan routing API.
+* `core/` — berisi konfigurasi dan konstanta yang digunakan oleh backend.
+* `models/` — berisi implementasi model yang digunakan dalam proses inference.
+* `app.py` — entry point dan konfigurasi aplikasi backend.
+* `README.md` — dokumentasi backend.
 
 ### `website/frontend/`
 
-Frontend aplikasi berbasis Next.js.
+Frontend merupakan antarmuka aplikasi yang dibangun menggunakan Next.js.
 
 ```text
 frontend/
@@ -123,33 +104,27 @@ frontend/
 └── tsconfig.json
 ```
 
-| Folder/File       | Deskripsi                                              |
-| ----------------- | ------------------------------------------------------ |
-| `public/`         | Static assets                                          |
-| `src/app/`        | Halaman dan routing aplikasi                           |
-| `src/components/` | Reusable UI components                                 |
-| `src/lib/`        | Utility dan helper, termasuk komunikasi dengan backend |
-| `package.json`    | Dependency dan script frontend                         |
-| `next.config.ts`  | Konfigurasi Next.js                                    |
-| `tsconfig.json`   | Konfigurasi TypeScript                                 |
+* `public/` — berisi aset statis.
+* `src/app/` — berisi halaman dan routing aplikasi.
+* `src/components/` — berisi komponen antarmuka yang dapat digunakan kembali.
+* `src/lib/` — berisi fungsi utilitas dan kebutuhan komunikasi dengan backend.
+* `package.json` — konfigurasi dependency dan script project.
+* `next.config.ts` — konfigurasi Next.js.
+* `tsconfig.json` — konfigurasi TypeScript.
 
 ---
 
-## Ringkasan
+## Summary
 
-Secara sederhana, struktur repository dapat dipahami sebagai:
+Secara umum, pembagian repository adalah sebagai berikut:
 
 ```text
-dermadiff-ai/
-│
-├── fine-tune/        → Research & Model Training
-│   ├── dataset/      → Dataset preparation
-│   ├── models/       → Diffusion model experiments
-│   └── evaluation/   → Model & image evaluation
-│
-└── website/          → Web Application
-    ├── backend/      → API & AI inference
-    └── frontend/     → User interface
-```
+fine-tune/
+└── Persiapan dataset, fine-tuning, dan evaluasi model
 
-Dengan pembagian tersebut, **`fine-tune/` berfokus pada pengembangan dan eksperimen model**, sedangkan **`website/` berfokus pada penggunaan model melalui aplikasi web**.
+website/
+├── backend/
+│   └── API dan proses inference
+└── frontend/
+    └── Antarmuka aplikasi web
+```
