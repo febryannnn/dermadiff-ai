@@ -1,0 +1,53 @@
+# DermaDiff — Requirements
+# ========================
+#
+# Install with:
+#   pip install -r requirements.txt
+#
+# Phase 1 (LoRA/DoRA fine-tuning) and Phase 2 (generation) need accelerate + peft.
+# Phase 3 and Phase 4 need PanDerm-specific dependencies (timm 0.9.16 is required —
+# newer versions break PanDerm's ViT loading).
+#
+# Additionally, clone PanDerm separately:
+#   git clone https://github.com/SiyuanYan1/PanDerm.git
+
+# ── Core ML stack ──
+torch>=2.0.0
+torchvision
+numpy
+pandas
+Pillow
+tqdm
+
+# ── Phase 1 & 2: SDXL LoRA/DoRA + generation ──
+# Training scripts are bundled in the repo (diffusers v0.37.1).
+# Only clone diffusers from source if you want to override with --diffusers_dir.
+transformers>=4.36.0
+accelerate>=0.27.0
+peft>=0.10.0
+safetensors
+bitsandbytes
+xformers
+
+# ── Phase 3: PanDerm classifier training ──
+# CRITICAL: PanDerm requires this exact timm version. Newer versions break ViT loading.
+timm==0.9.16
+tensorboard
+tensorboardX
+open-clip-torch
+pycm
+ftfy
+
+# ── Phase 0: Dataset prep ──
+openpyxl
+
+# ── Phase 4: Evaluation metrics ──
+scikit-learn
+matplotlib
+seaborn
+scipy
+
+# ── Cross-model evaluation (evaluation/) ──
+torchmetrics[image]
+lpips
+pytorch-msssim
